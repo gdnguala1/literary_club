@@ -1,0 +1,41 @@
+@startuml
+title Литературный клуб — Диаграмма вариантов использования
+left to right direction
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+actor "Посетитель" as Visitor
+actor "Участник" as Member
+actor "Администратор" as Admin
+
+rectangle "Система «Литературный клуб»" {
+  usecase "Просматривать каталог" as UC1
+  usecase "Искать книгу" as UC2
+  usecase "Просматривать информацию\nо книге" as UC3
+  usecase "Создать аккаунт" as UC4
+  usecase "Войти в систему" as UC5
+  usecase "Вступить в книжный\nклуб" as UC6
+  usecase "Участвовать в обсуждениях" as UC7
+  usecase "Просматривать мероприятия" as UC8
+  usecase "Управлять книгами" as UC9
+  usecase "Управлять клубами и\nмероприятиями" as UC10
+  usecase "Управлять участниками" as UC11
+}
+
+Visitor --> UC1
+Visitor --> UC2
+Visitor --> UC3
+Visitor --> UC4
+Visitor --> UC8
+
+Member --|> Visitor
+Member --> UC5
+Member --> UC6
+Member --> UC7
+
+Admin --|> Member
+Admin --> UC9
+Admin --> UC10
+Admin --> UC11
+
+@enduml
